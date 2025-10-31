@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTS Logika Matematika</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body class="bg-gray-100 font-sans leading-relaxed">
+
+    <div class="max-w-2xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg my-10">
+
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">UTS Logika Matematika</h1>
+        <div class="informasi bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <p class="flex"><b class="w-28 inline-block font-semibold text-gray-700">NIM:</b> 256512017</p>
+            <p class="flex"><b class="w-28 inline-block font-semibold text-gray-700">Nama:</b> Iqbal Nurdiansyah</p>
+            <p class="flex"><b class="w-28 inline-block font-semibold text-gray-700">Kelas:</b> Informatika</p>
+            <p class="flex"><b class="w-28 inline-block font-semibold text-gray-700">Dosen:</b> Iin, M.Kom</p>
+            <p class="flex"><b class="w-28 inline-block font-semibold text-gray-700">Kampus:</b> Universitas Masoem</p>
+        </div>
+        <span class="block mt-2 text-sm text-gray-600">*untuk melakukan distribsi Zakat mustahik harap mengisi data Zakat Mal / Zakat Fitrah terlebih dahulu.</span>
+
+        <div class="pilihan-utama mb-6">
+            <h3 class="text-xl font-semibold mb-3">Pilih Jenis Zakat:</h3>
+            <div class="flex space-x-6">
+                <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="radio" name="jenisZakatUtama" id="pilihMal" value="mal" class="text-blue-600 focus:ring-blue-500">
+                    <span class="text-lg">Zakat Mal (Harta)</span>
+                </label>
+                <label class="flex items-center space-x-2 cursor-pointer">
+                    <input type="radio" name="jenisZakatUtama" id="pilihFitrah" value="fitrah" class="text-blue-600 focus:ring-blue-500">
+                    <span class="text-lg">Zakat Fitrah (Jiwa)</span>
+                </label>
+            </div>
+        </div>
+        
+        <div id="zakatMalContainer" class="section hidden">
+            <hr class="my-4">
+            <h4 class="text-lg font-semibold mb-3">Silakan pilih jenis Zakat Mal yang ingin dihitung:</h4>
+            <div class="jenis-zakat grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekEmas" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Emas</span>
+                    </label>
+                    <div id="emasSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Jumlah Emas (gram):</p>
+                        <input type="number" id="emas" placeholder="Gram emas" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulEmas" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekPertanian" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Pertanian</span>
+                    </label>
+                    <div id="pertanianSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Hasil Panen (kg):</p>
+                        <input type="number" id="hasilPanen" placeholder="Kg gabah/beras" class="w-full p-2 border border-gray-300 rounded-md">
+                        <small class="text-xs text-gray-500 block mt-1">(Nishab: 653 kg. Zakat 5% jika beririgasi, 10% tadah hujan. Kode ini mengasumsikan 5%)</small>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekPenghasilan" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Penghasilan</span>
+                    </label>
+                    <div id="penghasilanSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Gaji per bulan (Rp):</p>
+                        <input type="number" id="gaji" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <small class="text-xs text-gray-500 block mt-1">(Dihitung per tahun, nishab dianalogikan dengan emas)</small>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekPerak" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Perak</span>
+                    </label>
+                    <div id="perakSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Jumlah Perak (gram):</p>
+                        <input type="number" id="perak" placeholder="Gram perak" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulPerak" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+                
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekUang" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Uang & Surat Berharga</span>
+                    </label>
+                    <div id="uangSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Total Uang & Surat Berharga (Rp):</p>
+                        <input type="number" id="uang" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulUang" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekNiaga" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Perniagaan</span>
+                    </label>
+                    <div id="niagaSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Nilai Aset (Rp):</p>
+                        <input type="number" id="barangNiaga" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Keuntungan (Rp):</p>
+                        <input type="number" id="labaNiaga" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Utang Jatuh Tempo (Rp):</p>
+                        <input type="number" id="utangNiaga" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulNiaga" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekPeternakan" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Peternakan</span>
+                    </label>
+                    <div id="peternakanSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Nilai Total Hasil (Rp):</p>
+                        <input type="number" id="hasilPeternakan" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulPeternakan" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                        <small class="text-xs text-gray-500 block mt-1">(Perhitungan disederhanakan berdasarkan nilai rupiah, bukan jumlah hewan ternak)</small>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekTambang" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Pertambangan</span>
+                    </label>
+                    <div id="tambangSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Nilai Hasil Tambang (Rp):</p>
+                        <input type="number" id="hasilTambang" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulTambang" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                        <small class="text-xs text-gray-500 block mt-1">(Diasumsikan 2.5% per tahun, diqiyaskan dengan zakat niaga)</small>
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekInvestasi" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Investasi</span>
+                    </label>
+                    <div id="investasiSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Keuntungan Bersih Tahunan (Rp):</p>
+                        <input type="number" id="hasilInvestasi" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulInvestasi" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekTabungan" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Tabungan</span>
+                    </label>
+                    <div id="tabunganSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Jumlah Tabungan (Rp):</p>
+                        <input type="number" id="tabungan" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <p class="text-sm mb-1 mt-2">Lama Kepemilikan (tahun):</p>
+                        <input type="number" id="haulTabungan" placeholder="Tahun" class="w-full p-2 border border-gray-300 rounded-md">
+                    </div>
+                </div>
+
+                <div class="border border-gray-200 p-3 rounded-lg">
+                    <label class="flex items-center space-x-2 font-medium">
+                        <input type="checkbox" id="cekRikaz" class="rounded text-blue-600 focus:ring-blue-500">
+                        <span>Zakat Rikaz</span>
+                    </label>
+                    <div id="rikazSection" class="section-inner mt-3 pt-3 border-t border-gray-100 hidden">
+                        <p class="text-sm mb-1">Nilai Rikaz (Rp):</p>
+                        <input type="number" id="rikaz" placeholder="0" class="w-full p-2 border border-gray-300 rounded-md">
+                        <small class="text-xs text-gray-500 block mt-1">(Zakat 20%, tidak ada nishab & haul, dibayar saat ditemukan)</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="zakatFitrahContainer" class="section hidden">
+            <hr class="my-4">
+            <h4 class="text-lg font-semibold mb-3">Masukkan jumlah jiwa (orang) yang ditanggung:</h4>
+            <div class="jenis-zakat">
+                <p class="text-sm mb-1">Jumlah Jiwa (termasuk diri sendiri):</p>
+                <input type="number" id="jumlahJiwa" placeholder="0" class="w-full max-w-xs p-2 border border-gray-300 rounded-md">
+            </div>
+        </div>
+        
+        <div class="kalkulasi mt-6">
+            <button onclick="cekZakat()" class="w-full bg-blue-600 text-white font-bold py-3 px-5 rounded-lg hover:bg-blue-700 transition duration-200">
+                Cek Kewajiban
+            </button>
+            <div id="hasil" class="text-lg font-semibold mt-4 bg-gray-50 p-4 rounded-lg"></div>
+            
+            <div class="penjelasan-logika mt-6 border-t border-dashed border-gray-300 pt-4">
+                <p class="text-sm font-bold text-gray-700 uppercase">Hukum Logika</p>
+                <div id="penjelasan" class="text-sm text-gray-600"></div>
+            </div>
+        </div>
+
+        <div id="distribusiContainer" class="section hidden mt-8 border-t-2 border-blue-500 pt-6">
+            <h3 class="text-2xl font-semibold mb-3">2. Distribusi Zakat</h3>
+            <p class="text-base mb-4">Total zakat yang akan didistribusikan: 
+                <b class="text-blue-700 text-lg"><span id="totalZakatDistribusi"></span></b>
+            </p>
+            <p class="font-medium mb-3">Silakan pilih (subset) mustahik yang akan menerima:</p>
+            
+            <div class="himpunan-mustahik grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Fakir"> 
+                    <span>Fakir</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Miskin"> 
+                    <span>Miskin</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Amil"> 
+                    <span>Amil</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Muallaf"> 
+                    <span>Muallaf</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Riqab"> 
+                    <span>Riqab</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Gharim"> 
+                    <span>Gharim</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Fi Sabilillah"> 
+                    <span>Fi Sabilillah</span>
+                </label>
+                <label class="flex items-center space-x-2 p-2 border rounded-md hover:bg-gray-50 cursor-pointer">
+                    <input type="checkbox" class="mustahik-check rounded text-blue-600" value="Ibnu Sabil"> 
+                    <span>Ibnu Sabil</span>
+                </label>
+            </div>
+
+            <button onclick="distribusikanZakat()" class="w-full bg-green-600 text-white font-bold py-3 px-5 rounded-lg hover:bg-green-700 transition duration-200">
+                Hitung Distribusi
+            </button>
+
+            <div id="hasilDistribusi" class="mt-4 bg-gray-50 p-4 rounded-lg"></div>
+            <div id="penjelasanLogikaDistribusi" class="penjelasan-logika mt-6 border-t border-dashed border-gray-300 pt-4 text-sm text-gray-600"></div>
+        </div>
+    
+    </div> 
+    <script src="JavaScript/main.js"></script>
+</body>
+</html>
