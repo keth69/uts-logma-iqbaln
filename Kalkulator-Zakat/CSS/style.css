@@ -90,6 +90,7 @@ body {
 .text-2xl { font-size: 1.5rem; }
 .text-3xl { font-size: 1.875rem; }
 .uppercase { text-transform: uppercase; }
+.text-center { text-align: center; }
 
 /* warna */
 .text-white { color: #ffffff; }
@@ -178,3 +179,4 @@ hr.my-4 {
     border-top: 1px solid #e5e7eb;
 
 }
+
