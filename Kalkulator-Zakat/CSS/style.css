@@ -103,9 +103,9 @@ body {
 
 /* Background */
 .bg-white { background-color: #ffffff; }
-.bg-gray-50 { background-color: #f9fafb; }
-.bg-gray-100 { background-color: #f3f4f6; }
-.bg-blue-600 { background-color: #2563eb; }
+.bg-gray-50 { background-color: #f1f3f8; }
+.bg-gray-100 { background-color: #182747; }
+.bg-blue-600 { background-color: #182747; }
 .bg-green-600 { background-color: #16a34a; }
 
 /* Border */
@@ -176,4 +176,5 @@ hr.my-4 {
     margin-bottom: 1rem; 
     border: 0;
     border-top: 1px solid #e5e7eb;
+
 }
