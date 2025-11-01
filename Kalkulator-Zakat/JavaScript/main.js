@@ -104,7 +104,7 @@ function formatRupiah(number) {
     }).format(number);
 }
 
-// fungsi zakat
+// fungsi zakat logika if else dan aritmatika
 function hitungZakatMal() {
     let totalZakatRupiah = 0;
     let hasilPerhitunganHTML = '<h3 class="text-lg font-semibold mb-2">Rincian Perhitungan Zakat Mal:</h3><ul class="list-disc list-inside space-y-1">';
@@ -446,4 +446,5 @@ function distribusikanZakat() {
     </ul>`;
 
     penjelasanDistribusiEl.innerHTML = penjelasanHTML;
+
 }
